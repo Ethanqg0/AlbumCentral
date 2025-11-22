@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./output.css" rel="stylesheet" />
+  <title>Album Tracker</title>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100 min-h-screen p-6 md:mt-4 lg:mt-8">
+  <div class="mx-auto max-w-5xl">
+    <h1 class="text-4xl font-bold mb-2">Album Tracker</h1>
+    <p class="text-zinc-400 mb-6">Manage your music listening journey. Created by Blendify ❤️</p>
+
+    <!-- Buttons -->
+    <div class="flex flex-wrap gap-3 mb-6">
+      <button id="openAddModal" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg flex items-center gap-2">
+        ➕ Add Album
+      </button>
+
+      <button id="pickAlbumBtn"
+        class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg flex items-center gap-2">
+        🔀 Pick Album for Today
+      </button>
+    </div>
+
+    <!-- 3 columns -->
+    <div class="grid gap-6 md:grid-cols-3">
+
+      <!-- Meaning to Listen -->
+      <div class="p-4 border border-zinc-700 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-xl font-semibold">Meaning to Listen</h2>
+          <span id="meaningCount" class="text-zinc-400 text-sm"></span>
+        </div>
+        <div id="meaningList" class="space-y-3"></div>
+      </div>
+
+      <!-- In Progress -->
+      <div class="p-4 border border-zinc-700 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-xl font-semibold">In Progress</h2>
+          <span id="progressCount" class="text-zinc-400 text-sm"></span>
+        </div>
+        <div id="progressList" class="space-y-3"></div>
+      </div>
+
+      <!-- Listened To -->
+      <div class="p-4 border border-zinc-700 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-xl font-semibold">Listened To</h2>
+          <span id="listenedCount" class="text-zinc-400 text-sm"></span>
+        </div>
+        <div id="listenedList" class="space-y-3"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Add Album Modal -->
+  <div id="addModal"
+    class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+    <div class="bg-zinc-900 p-6 rounded-xl max-w-sm w-full border border-zinc-700">
+      <h2 class="text-2xl font-semibold mb-4">Add Album</h2>
+
+      <div class="space-y-3">
+        <input id="albumTitle" type="text" placeholder="Album Title"
+          class="w-full p-2 bg-zinc-800 border border-zinc-600 rounded-lg" />
+
+        <input id="albumArtist" type="text" placeholder="Artist"
+          class="w-full p-2 bg-zinc-800 border border-zinc-600 rounded-lg" />
+
+        <input id="albumYear" type="text" placeholder="Year (Optional)"
+          class="w-full p-2 bg-zinc-800 border border-zinc-600 rounded-lg" />
+
+        <input id="priority" type="text" placeholder="Priority (0-1 scale)" 
+          class="w-full p-2 bg-zinc-800 border border-zinc-600 rounded-lg" />
+      </div>
+
+      <div class="flex justify-end gap-3 mt-6">
+        <button id="cancelAdd"
+          class="px-4 py-2 rounded-lg bg-zinc-700 hover:bg-zinc-600">Cancel</button>
+
+        <button id="submitAdd"
+          class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Picked Album Modal -->
+  <div id="pickedModal"
+    class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+    <div class="bg-zinc-900 p-6 rounded-xl max-w-sm w-full border border-zinc-700 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Today's Pick</h2>
+
+      <div id="pickedContent" class="mb-6 text-zinc-300"></div>
+
+      <button id="closePicked"
+        class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+</html>
